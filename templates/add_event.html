@@ -1,0 +1,55 @@
+<form action="{{ request.path }}" method="POST" class="...">
+    {{ form.csrf_token }}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    <!-- Categories: success (green), info (blue), warning (yellow), danger (red) -->
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="alert alert-{{category}} alert-dismissible fade show" role="alert">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+
+    {{ form.name(class_="form-control",placeholder="Nombre del evento")}}
+    {% for error in form.name.errors %}
+    {{ error }}
+    {% endfor%}
+
+    {{ form.category(class_="form-control",placeholder="Categoría")}}
+    {% for error in form.category.errors %}
+    {{ error }}
+    {% endfor%}
+
+    {{ form.place(class_="form-control",placeholder="Lugar")}}
+    {% for error in form.place.errors %}
+    {{ error }}
+    {% endfor%}
+
+    {{ form.address(class_="form-control",placeholder="Dirección")}}
+    {% for error in form.address.errors %}
+    {{ error }}
+    {% endfor%}
+
+    {{ form.start_datetime(class_="form-control",placeholder="Fecha de inicio (%Y-%m-%d %H:%M:%S)")}}
+    {% for error in form.name.errors %}
+    {{ error }}
+    {% endfor%}
+
+    {{ form.end_datetime(class_="form-control",placeholder="Fecha final (%Y-%m-%d %H:%M:%S)")}}
+    {% for error in form.end_datetime.errors %}
+    {{ error }}
+    {% endfor%}
+
+    {{ form.is_virtual(class_="form-control",placeholder="Es virtual?")}}
+    {% for error in form.is_virtual.errors %}
+    {{ error }}
+    {% endfor%}
+
+    <button type="submit" class="btn btn-block btn-primary mb-3">
+        {{ btn_action }}
+    </button>
+
+</form>

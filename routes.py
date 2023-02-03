@@ -34,6 +34,9 @@ from app import create_app,db,login_manager,bcrypt
 from models import User, Event, EventCategoryEnum
 from forms import login_form, register_form, EventForm
 
+import sys
+import os
+sys.path.append(os.path.dirname(__file__))
 
 @login_manager.user_loader
 def load_user(user_id):

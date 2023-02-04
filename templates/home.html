@@ -10,17 +10,22 @@ table, th, td {
     <div class="container py-4 text-center">
         <h1>Welcome {{ current_user.username }}</h1>
         <a href="{{url_for('logout')}}">Logout</a>
+        <a href="{{url_for('put_event')}}">Agregar evento</a>
         <table>
             <tr>
                 <th>Nombre</th>
                 <th>Fecha de inicio</th>
                 <th>Fecha de finalización</th>
+                <th>Modificar</th>
+                <th>Eliminar</th>
             </tr>
             {% for event in events %}
                 <tr>
-                    <th>{{ event.name }}</th>
+                    <th><a href="{{url_for('show_event', id=event.id)}}">{{ event.name }}</a></th>
                     <th>{{ event.start_datetime }}</th>
                     <th>{{ event.end_datetime }}</th>
+                    <th><a href="{{url_for('update_event', id=event.id)}}"> Modificar </a></th>
+                    <th><a href="{{url_for('delete_event', id=event.id)}}"> Eliminar </a></th>
                 </tr>
             {% endfor%}
         </table>

@@ -187,6 +187,7 @@ def show_event(id):
 def delete_event(id):
     event = Event.query.get_or_404(id)
     db.session.delete(event)
+    db.session.commit()
     return redirect(url_for('home'))
 
 @app.route("/event/<id>/update", methods=("GET", "POST"), strict_slashes=False)

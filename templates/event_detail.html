@@ -3,14 +3,15 @@
 
 <body>
     <div>
-        <p><b>id:</b>{{ event.id }}</p>
-        <p><b>user_id:</b>{{ event.user_id }}</p>
-        <p><b>name:</b>{{ event.name }}</p>
-        <p><b>category:</b>{{ event.category }}</p>
-        <p><b>place:</b>{{ event.place }}</p>
-        <p><b>address:</b>{{ event.address }}</p>
-        <p><b>start_datetime:</b>{{ event.start_datetime }}</p>
-        <p><b>end_datetime:</b>{{ event.end_datetime }}</p>
-        <p><b>is_virtual:</b>{{ event.is_virtual }}</p>
+        <p><b>id: </b>{{ event.id }}</p>
+        <p><b>id de usuario: </b>{{ event.user_id }}</p>
+        <p><b>Nombre: </b>{{ event.name }}</p>
+        <p><b>Categoría: </b>{{ event.category }}</p>
+        <p><b>Lugar: </b>{{ event.place }}</p>
+        <p><b>Dirección: </b>{{ event.address }}</p>
+        <p><b>Fecha y hora de inicio: </b>{{ event.start_datetime }}</p>
+        <p><b>Fecha y hora de finalización: </b>{{ event.end_datetime }}</p>
+        <p><b>¿Es virtual?: </b>{{ event.is_virtual }}</p>
     </div>
+    <p><a href="{{url_for('home')}}">Regresar</a></p>
 </body>
